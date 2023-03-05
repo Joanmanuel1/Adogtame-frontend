@@ -1,0 +1,112 @@
+<div class="grid-container">
+    <div class="grid-item grid-header">
+        <div>
+            <input type="text" class="animal-buscador" name="filterPost" placeholder="Ingrese el nombre que desea filtrar" [(ngModel)]="filterPost">
+        </div>
+    </div>
+
+    <div class="grid-item grid-aside">
+        <ul id="menu">
+            <li>
+                <button class="btn-adoptados" routerLink="../home">Adoptados </button>
+            </li>
+            <br>
+            <li>
+                <div class="dropdown">
+                    <div class="btn btn - boton1" (click)="isOpenFiltro = !isOpenFiltro">
+                        Filtrar <i [ngClass]="isOpenFiltro ? 'gg-chevron-down' : 'gg-chevron-right'"></i>
+                    </div>
+                    <div class="menu123" *ngIf="isOpenFiltro" [@dropDownMenu]>
+                        <div class="menu-item">
+                            <input type="checkbox" id="perroF" [(ngModel)]="filtroIncluye.tipo.perro" name="perroF" class="check">
+                            <label class="tran" for="perroF"> Tipo Perro </label>
+                            <hr>
+
+                            <input type="checkbox" id="gatoF" [(ngModel)]="filtroIncluye.tipo.gato" name="gatoF" class="check">
+                            <label class="tran" for="gatoF"> Tipo Gato </label>
+                            <hr>
+
+                            <input type="checkbox" id="grandeF" [(ngModel)]="filtroIncluye.tamano.grande" name="grandeF" class="check">
+                            <label class="tran" for="grandeF"> Tamaño Grande </label>
+                            <hr>
+                            <input type="checkbox" id="medianoF" [(ngModel)]="filtroIncluye.tamano.mediano" name="medianoF" class="check">
+                            <label class="tran" for="medianoF"> Tamaño Mediano </label>
+                            <hr>
+                            <input type="checkbox" id="chicoF" [(ngModel)]="filtroIncluye.tamano.chico" name="chicoF" class="check">
+                            <label class="tran" for="chicoF"> Tamaño Chico </label>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <br><br>
+
+            <li>
+                <div class="dropdown">
+                    <div class="btn btn - boton1" (click)="isOpenExcluir = !isOpenExcluir">
+                        Excluir <i [ngClass]="isOpenExcluir ? 'gg-chevron-down' : 'gg-chevron-right'"></i>
+                    </div>
+                    <div class="menu123" *ngIf="isOpenExcluir" [@dropDownMenu]>
+                        <div class="menu-item">
+
+                            <input type="checkbox" id="perroE" [(ngModel)]="filtroExcluye.tipo.perro" name="perroE" class="check">
+                            <label class="tran" for="perroE"> Tipo Perro </label>
+                            <hr>
+
+                            <input type="checkbox" id="gatoE" [(ngModel)]="filtroExcluye.tipo.gato" name="gatoE" class="check">
+                            <label class="tran" for="gatoE"> Tipo Gato </label>
+                            <hr>
+
+                            <input type="checkbox" id="grandeE" [(ngModel)]="filtroExcluye.tamano.grande" name="grandeE" class="check">
+                            <label class="tran" for="grandeE"> Tamaño Grande </label>
+                            <hr>
+                            <input type="checkbox" id="medianoE" [(ngModel)]="filtroExcluye.tamano.mediano" name="medianoE" class="check">
+                            <label class="tran" for="medianoE"> Tamaño Mediano </label>
+                            <hr>
+                            <input type="checkbox" id="chicoE" [(ngModel)]="filtroExcluye.tamano.chico" name="chicoE" class="check">
+                            <label class="tran" for="chicoE"> Tamaño Chico </label>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <br><br>
+
+            <li><button class="btn btn - boton2" (click)="clickEnAplicar()">Aplicar</button></li>
+        </ul>
+
+    </div>
+    <div class="grid-item grid-main">
+        <div class="container-animales">
+            <div class="col-md-4" *ngFor=" let animal of animales | filter:filterPost">
+                <div class="animal-cont">
+                    <div class="image-animal">
+                        <p class="animal-name" (click)="irAAnimal(animal.id)"><b>{{animal.nombre}}</b> </p>
+
+
+                        <div class="imagenC">
+                            <app-upload-list class="imagenC" [sujetoID]='animal.id' [Pertenece]='ubi'></app-upload-list>
+                        </div>
+
+                        <div class="animal-body">
+                            <!--{{usuario.nombre}}-->
+                            <p class="animal-data"><b>Tipo:</b> {{animal.tipo}} </p>
+                            <p class="animal-data"><b>Tamaño:</b> {{animal.tamano}} </p>
+                        </div>
+                    </div>
+                    <!-- <p class="animal-name"></p> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid-item grid-footer">
+
+        <div class="copyright-footer">
+
+            <p><b>Copyright © Adogtame </b></p>
+        </div>
+    </div>
+</div>

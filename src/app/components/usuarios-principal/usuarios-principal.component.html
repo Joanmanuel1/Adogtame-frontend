@@ -1,0 +1,19 @@
+<div class="container">
+  <input type="text" class="animal-buscador" name="filterPost" placeholder="Ingrese el nombre que desea filtrar"
+    [(ngModel)]="filterPost">
+  <div class="col-md-12" *ngFor=" let animal of animales | filter:filterPost" (click)="irAAnimal(animal.id)">
+    <div class="image-animal">
+      <p class="animal-name" ><b>{{animal.nombre}}</b> </p>
+      <app-upload-list [sujetoID]='animal.id' [Pertenece]='ubi'></app-upload-list>
+        <p class="datos">│ Tipo: {{animal.tipo}}. │  │ Tamaño: {{animal.tamano}}. │  │ Sexo: {{animal.sexo}}. │ │ Peso: {{animal.peso}} KG │</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="grid-item grid-footer">
+  <div class="copyright-footer">
+    <p><b>Copyright © Adogtame </b></p>
+  </div>
+</div>
