@@ -3,9 +3,6 @@ export const environment = {
   firebase: {
     apiKey: "AIzaSyDcsY2IQnrAa4nPGl6I39m30oWyKf6gxQw",
     authDomain: "adogtmame.firebaseapp.com",
-    databaseURL: "https://adogtmame-default-rtdb.firebaseio.com/",
-    
-    //databaseURL: 'https://adogtame-c281c.appspot.com',
     projectId: "adogtmame",
     storageBucket: "adogtmame.appspot.com",
     messagingSenderId: "336871718869",
