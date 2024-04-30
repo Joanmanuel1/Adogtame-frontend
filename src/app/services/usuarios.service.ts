@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 	providedIn: 'root'
 })
 export class UsuariosService {
-	API_URI = 'https://adogtame-backend.up.railway.app/user';  
+	//API_URI = 'https://adogtame-backend.up.railway.app/user';  
 	//API_URI = 'http://localhost:3000/user';
+	API_URI = 'https://adogtame-backend.onrender.com/user';
 	
 
 	constructor(private http: HttpClient, private router:Router) { }
