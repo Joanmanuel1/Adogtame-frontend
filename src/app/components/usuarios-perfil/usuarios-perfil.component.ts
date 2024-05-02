@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
 })
 export class UsuariosPerfilComponent implements OnInit, OnDestroy {
 
-  animal = { idDador: "", nombre: "", sexo: "", tipo: "", fNac: "", tamano: "", peso: "" };
+  animal = { idDador: "", nombre: "", sexo: "", tipo: "", fNac: "", tamano: "", peso: "", estado: 1 };
   Usuario: any = [];
   animales: any = [];
   animalesAdoptados: any = [];

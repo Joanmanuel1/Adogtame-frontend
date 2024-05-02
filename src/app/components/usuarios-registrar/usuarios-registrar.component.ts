@@ -44,25 +44,24 @@ export class UsuariosRegistrarComponent implements OnInit {
     }
 
     registrar() {
+        console.log("Iniciando registro de usuario");
         this.usuariosService.registrar(this.user).subscribe(
-            //TO DO: Modificar para que no redireccione, ni almacene el token
             res => {
+                console.log("Registro exitoso");
                 let result: any = res;
-                this.siguienteIdusuario = result.message.id;
-                console.log("Id usuario siguiente: ", this.siguienteIdusuario);
-                this.upload();
-                this.router.navigate(['usuarios/verificando']);
-            },
-            err => {
-                this.mensaje = String(err.error.message);
-                if(this.mensaje == '44') {
-                    console.log('adentro del if');
-                    this.emailExiste = true;
+                if (result && result.message && result.message.id) {
+                    this.siguienteIdusuario = result.message.id;
+                    console.log("Id del usuario registrado: ", this.siguienteIdusuario);
+                    this.upload();
+                } else {
+                    console.error("Formato de respuesta inesperado:", result);
                 }
+            },
+            error => {
+                console.error("Error durante el registro:", error);
             }
-        )
+        );
     }
-
     verificarForm(): boolean {
         this.errorNombre = this.verificarNombre(this.user.nombre);
         this.errorApellido = this.verificarApellido(this.user.apellido);
