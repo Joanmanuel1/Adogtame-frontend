@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UsuariosService {
   //API_URI = 'https://adogtame-backend.up.railway.app/user';
-  API_URI = 'http://localhost:3000/user';
-  //API_URI = 'https://adogtame-backend.onrender.com/user';
+  //API_URI = 'http://localhost:3000/user';
+  API_URI = 'https://adogtame-backend.onrender.com/user';
 
   constructor(private http: HttpClient, private router: Router) {}
   logued$ = new EventEmitter<string>(); //Para comprobar si esta logueado el usuario
